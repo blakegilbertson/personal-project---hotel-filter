@@ -10,7 +10,7 @@ configure({ adapter: new Adapter() })
 describe('<App /> shallow renders correctly', () => {
   const app = shallow(<App />)
   it('h1 should contain correct heading text', () => {
-    expect(app.find('h1').text()).toBe('Some heading')
+    expect(app.find('h1').text()).toBe('Hotel Filtering')
   })
   it('matches snapshot', () => {
     const app = shallow(<App />)
