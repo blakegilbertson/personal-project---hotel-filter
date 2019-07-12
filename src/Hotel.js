@@ -11,6 +11,11 @@ class HotelList extends Component {
     filterSet: null,
   }
 
+  handleFilterClick = (facility) => {
+    console.log('handleFilterClick facility: ', facility);
+    this.setState({ filterSet: facility });
+  }
+
   render() {
     const { filterSet } = this.state;
     return (
@@ -25,7 +30,9 @@ class HotelList extends Component {
                 `Current filter: ${filterSet || 'None'}`
               }
             </p>
-            <FilterOptions />
+            <FilterOptions
+              handleFilterClick={this.handleFilterClick}
+            />
           </div>
           <table className="hotel-table">
             <tbody>

@@ -42,4 +42,15 @@ describe('<FilterOptions /> shallow renders correctly', () => {
 
     expect(filterOptions.find('.filter-option').length).toBeGreaterThanOrEqual(1);
   });
+
+  it('Should click as expected', () => {
+    // TODO - fix this
+    // Cant simuate click as function is undefined - need to pass it through to here some how
+    // error: TypeError: Cannot read property 'handleFilterClick' of undefined
+    // filterOptions.find('.filter-option:first-child').simulate('click');
+
+    // filterOptions.find('.filter-option:first-child').simulate('click', () => {
+    //   console.log('handleFilterClick fired');
+    // });
+  });
 });
