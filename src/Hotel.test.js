@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 import HotelList from './Hotel';
 import HotelRow from './HotelRow';
 import FilterOptions from './FilterOptions';
+import FilterButton from './FilterButton';
 
 configure({ adapter: new Adapter() });
 
@@ -39,8 +40,15 @@ describe('<FilterOptions /> shallow renders correctly', () => {
 
   it('Should output filter options', () => {
     expect(filterOptions.find('.hotel-filters').exists()).toBeTruthy();
+  });
+});
 
-    expect(filterOptions.find('.filter-option').length).toBeGreaterThanOrEqual(1);
+describe('<FilterOptions /> shallow renders correctly', () => {
+  const mockCallback = jest.fn();
+  const filterButton = shallow(<FilterButton onClick={mockCallback} />);
+
+  it('Should render button correctly', () => {
+    expect(filterButton.length).toBeGreaterThanOrEqual(1);
   });
 
   it('Should click as expected', () => {
@@ -52,5 +60,20 @@ describe('<FilterOptions /> shallow renders correctly', () => {
     // filterOptions.find('.filter-option:first-child').simulate('click', () => {
     //   console.log('handleFilterClick fired');
     // });
+
+    // const mockLogout = jest.fn();
+    // const wrapper = shallow(<Component startLogout={mockLogout}/>);
+    // wrapper.find('button').at(0).simulate('click');
+    // expect(mockLogout).toHaveBeenCalled();
+
+
+
+
+    // expect(mockCallback.mock.calls.length).toEqual(0);
+
+    // filterButton.simulate('click');
+
+    // expect(mockCallback).toHaveBeenCalled();
+    // expect(mockCallback.mock.calls.length).toEqual(1);
   });
 });
