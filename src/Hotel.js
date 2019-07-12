@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import hotelData from './hotel.data.json';
 import './Hotel.css';
 import HotelRow from './HotelRow';
+
+console.log(hotelData);
 
 class HotelList extends Component {
   state = {
@@ -16,6 +17,17 @@ class HotelList extends Component {
           <h1>Hotel Filtering</h1>
         </header>
         <section className="hotel-content">
+          <div className="hotel-filtering">
+            <p>Current filter: None</p>
+            <div className="hotel-filters">
+              <button
+                className="filter-option"
+                type="button"
+              >
+                Some option
+              </button>
+            </div>
+          </div>
           <table className="hotel-table">
             <tbody>
               <tr>
