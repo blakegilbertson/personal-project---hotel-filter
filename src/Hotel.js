@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import hotelData from './hotel.data.json';
 import './Hotel.css';
-
-console.log(hotelData);
+import HotelRow from './HotelRow';
 
 class HotelList extends Component {
+  state = {
+    filter: null,
+  }
+
   render() {
     return (
       <div className="hotel-list">
@@ -20,11 +23,25 @@ class HotelList extends Component {
                 <th>Star rating</th>
                 <th>Facilities</th>
               </tr>
-              <tr className="hotel-row">
-                <td></td>
-                <td>Some rating</td>
-                <td>Some facilities</td>
-              </tr>
+              {
+                hotelData.map((hotel) => {
+                  const {
+                    hotelId,
+                    name,
+                    starRating,
+                    facilities,
+                  } = hotel;
+                  return (
+                    <HotelRow
+                      key={hotelId}
+                      hotelId={hotelId}
+                      name={name}
+                      starRating={starRating}
+                      facilities={facilities}
+                    />
+                  );
+                })
+              }
             </tbody>
           </table>
         </section>
