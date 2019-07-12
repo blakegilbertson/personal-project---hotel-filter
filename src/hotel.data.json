@@ -1,0 +1,20 @@
+[
+  {
+    "hotelId": 0,
+    "name": "hotelone",
+    "starRating": 5,
+    "facilities": ["car park", "pool"]
+  },
+  {
+    "hotelId": 1,
+    "name": "hoteltwo",
+    "starRating": 3,
+    "facilities": ["car park", "gym"]
+  },
+  {
+    "hotelId": 2,
+    "name": "hotelthree",
+    "starRating": 3,
+    "facilities": []
+  }
+]
