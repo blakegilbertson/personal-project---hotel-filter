@@ -1,5 +1,5 @@
 import React from 'react';
-import './Hotel.css';
+import PropTypes from 'prop-types';
 
 const HotelRow = (props) => {
   const {
@@ -24,6 +24,20 @@ const HotelRow = (props) => {
       </td>
     </tr>
   );
+};
+
+HotelRow.propTypes = {
+  hotelId: PropTypes.number,
+  name: PropTypes.string,
+  starRating: PropTypes.number,
+  facilities: PropTypes.arrayOf,
+};
+
+HotelRow.defaultProps = {
+  hotelId: 666,
+  name: 'Devils Paradise',
+  starRating: 5,
+  facilities: ['Lava bath', 'Pitch Fork Massage'],
 };
 
 export default HotelRow;
