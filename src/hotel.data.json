@@ -9,12 +9,12 @@
     "hotelId": 1,
     "name": "hoteltwo",
     "starRating": 3,
-    "facilities": ["car park", "gym"]
+    "facilities": ["car park", "gym", "playground"]
   },
   {
     "hotelId": 2,
     "name": "hotelthree",
     "starRating": 3,
-    "facilities": []
+    "facilities": ["jacuzzi", "playground"]
   }
 ]

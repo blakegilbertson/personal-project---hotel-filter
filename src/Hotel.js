@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import hotelData from './hotel.data.json';
 import './Hotel.css';
 import HotelRow from './HotelRow';
+import FilterOptions from './FilterOptions';
 
 console.log(hotelData);
 
 class HotelList extends Component {
   state = {
-    filter: null,
+    filterSet: null,
   }
 
   render() {
+    const { filterSet } = this.state;
     return (
       <div className="hotel-list">
         <header>
@@ -18,15 +20,12 @@ class HotelList extends Component {
         </header>
         <section className="hotel-content">
           <div className="hotel-filtering">
-            <p>Current filter: None</p>
-            <div className="hotel-filters">
-              <button
-                className="filter-option"
-                type="button"
-              >
-                Some option
-              </button>
-            </div>
+            <p>
+              {
+                `Current filter: ${filterSet || 'None'}`
+              }
+            </p>
+            <FilterOptions />
           </div>
           <table className="hotel-table">
             <tbody>
