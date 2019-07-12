@@ -33,11 +33,13 @@ HotelRow.propTypes = {
   facilities: PropTypes.arrayOf,
 };
 
-HotelRow.defaultProps = {
-  hotelId: 666,
-  name: 'Devils Paradise',
-  starRating: 5,
-  facilities: ['Lava bath', 'Pitch Fork Massage'],
-};
+// TODO: 
+// - set propsTypes to isRequired again and get passing tests or make optional and get defaults working
+// HotelRow.defaultProps = {
+//   hotelId: 666,
+//   name: 'Devils Paradise',
+//   starRating: 5,
+//   facilities: ['Lava bath', 'Pitch Fork Massage'],
+// };
 
 export default HotelRow;
