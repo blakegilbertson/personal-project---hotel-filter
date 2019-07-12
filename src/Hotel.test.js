@@ -8,10 +8,16 @@ configure({ adapter: new Adapter() });
 
 describe('<HotelList /> shallow renders correctly', () => {
   const hotelList = shallow(<HotelList />);
+  it('matches snapshot', () => {
+    expect(toJson(hotelList)).toMatchSnapshot();
+  });
   it('h1 should contain correct heading text', () => {
     expect(hotelList.find('h1').text()).toBe('Hotel Filtering');
   });
-  it('matches snapshot', () => {
-    expect(toJson(hotelList)).toMatchSnapshot();
+  it('Table outputs with headings and some data', () => {
+    expect(hotelList.find('.hotel-table').exists()).toBeTruthy();
+    expect(hotelList.find('.hotel-table th').exists()).toBeTruthy();
+    expect(hotelList.find('.hotel-table td').exists()).toBeTruthy();
+    expect(hotelList.find('.hotel-row').exists()).toBeTruthy();
   });
 });

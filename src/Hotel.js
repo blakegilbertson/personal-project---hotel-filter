@@ -13,7 +13,20 @@ class HotelList extends Component {
           <h1>Hotel Filtering</h1>
         </header>
         <section className="hotel-content">
-
+          <table className="hotel-table">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Star rating</th>
+                <th>Facilities</th>
+              </tr>
+              <tr className="hotel-row">
+                <td></td>
+                <td>Some rating</td>
+                <td>Some facilities</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </div>
     );

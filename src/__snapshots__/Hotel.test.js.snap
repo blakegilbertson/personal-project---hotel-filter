@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HotelList /> shallow renders correctly matches snapshot 1`] = `
+<div
+  className="hotel-list"
+>
+  <header>
+    <h1>
+      Hotel Filtering
+    </h1>
+  </header>
+  <section
+    className="hotel-content"
+  />
+</div>
+`;
