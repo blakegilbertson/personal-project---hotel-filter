@@ -9,6 +9,8 @@ const HotelRow = (props) => {
     facilities,
   } = props;
 
+  console.log('typeof facilities: ', typeof facilities);
+
   return (
     <tr className="hotel-row">
       <td>{name}</td>
@@ -27,19 +29,10 @@ const HotelRow = (props) => {
 };
 
 HotelRow.propTypes = {
-  hotelId: PropTypes.number,
-  name: PropTypes.string,
-  starRating: PropTypes.number,
-  facilities: PropTypes.arrayOf,
+  hotelId: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  starRating: PropTypes.number.isRequired,
+  facilities: PropTypes.objectOf(PropTypes.array).isRequired,
 };
-
-// TODO: 
-// - set propsTypes to isRequired again and get passing tests or make optional and get defaults working
-// HotelRow.defaultProps = {
-//   hotelId: 666,
-//   name: 'Devils Paradise',
-//   starRating: 5,
-//   facilities: ['Lava bath', 'Pitch Fork Massage'],
-// };
 
 export default HotelRow;

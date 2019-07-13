@@ -28,6 +28,7 @@ const FilterOptions = (props) => {
       {
         facilitiesSet.map(facility => (
           <FilterButton
+            key={`filter_${facility}`}
             facility={facility}
             handleFilterClick={handleFilterClick}
           />
@@ -38,8 +39,8 @@ const FilterOptions = (props) => {
 };
 
 FilterOptions.propTypes = {
-  handleFilterReset: PropTypes.func,
-  handleFilterClick: PropTypes.func,
-}
+  handleFilterReset: PropTypes.func.isRequired,
+  handleFilterClick: PropTypes.func.isRequired,
+};
 
 export default FilterOptions;

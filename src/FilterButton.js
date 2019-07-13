@@ -19,8 +19,8 @@ const FilterButton = (props) => {
 };
 
 FilterButton.propTypes = {
-  facility: PropTypes.arrayOf,
-  handleFilterClick: PropTypes.func,
+  facility: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleFilterClick: PropTypes.func.isRequired,
 };
 
 export default FilterButton;
