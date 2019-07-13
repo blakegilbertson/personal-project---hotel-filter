@@ -16,6 +16,14 @@ class HotelList extends Component {
     this.setState({ filterSet: facility });
   }
 
+  filterHotels = (filters) => {
+    if (filters === null) return hotelData;
+
+    const returnedHotel = hotelData.filter(hotel => hotel.facilities.includes(filters));
+
+    return returnedHotel;
+  };
+
   render() {
     const { filterSet } = this.state;
     return (
@@ -42,7 +50,7 @@ class HotelList extends Component {
                 <th>Facilities</th>
               </tr>
               {
-                hotelData.map((hotel) => {
+                this.filterHotels(filterSet).map((hotel) => {
                   const {
                     hotelId,
                     name,
