@@ -16,6 +16,10 @@ class HotelList extends Component {
     this.setState({ filterSet: facility });
   }
 
+  handleFilterReset = () => {
+    this.setState({ filterSet: null });
+  }
+
   filterHotels = (filters) => {
     if (filters === null) return hotelData;
 
@@ -39,6 +43,7 @@ class HotelList extends Component {
               }
             </p>
             <FilterOptions
+              handleFilterReset={this.handleFilterReset}
               handleFilterClick={this.handleFilterClick}
             />
           </div>

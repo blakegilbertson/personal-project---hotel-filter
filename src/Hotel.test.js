@@ -9,7 +9,7 @@ import FilterButton from './FilterButton';
 
 configure({ adapter: new Adapter() });
 
-describe('<HotelList /> shallow renders correctly', () => {
+describe('<HotelList /> shallow renders', () => {
   const hotelList = shallow(<HotelList />);
 
   it('Should match snapshot', () => {
@@ -27,7 +27,7 @@ describe('<HotelList /> shallow renders correctly', () => {
   });
 });
 
-describe('<HotelRow /> shallow renders correctly', () => {
+describe('<HotelRow /> shallow renders', () => {
   const hotelRow = shallow(<HotelRow />);
 
   it('Should output table with at least 1 row of data', () => {
@@ -35,19 +35,23 @@ describe('<HotelRow /> shallow renders correctly', () => {
   });
 });
 
-describe('<FilterOptions /> shallow renders correctly', () => {
+describe('<FilterOptions /> shallow renders', () => {
   const filterOptions = shallow(<FilterOptions />);
+
+  it('Should output the reset button', () => {
+    expect(filterOptions.find('.filter-reset').exists()).toBeTruthy();
+  });
 
   it('Should output filter options', () => {
     expect(filterOptions.find('.hotel-filters').exists()).toBeTruthy();
   });
 });
 
-describe('<FilterOptions /> shallow renders correctly', () => {
+describe('<FilterButton /> shallow renders', () => {
   const mockCallback = jest.fn();
   const filterButton = shallow(<FilterButton onClick={mockCallback} />);
 
-  it('Should render button correctly', () => {
+  it('Should render at least 1 filter button', () => {
     expect(filterButton.length).toBeGreaterThanOrEqual(1);
   });
 

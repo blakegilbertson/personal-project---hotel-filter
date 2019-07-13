@@ -5,6 +5,7 @@ import FilterButton from './FilterButton';
 
 const FilterOptions = (props) => {
   const {
+    handleFilterReset,
     handleFilterClick,
   } = props;
 
@@ -17,6 +18,13 @@ const FilterOptions = (props) => {
 
   return (
     <div className="hotel-filters">
+      <button
+        className="filter-option filter-reset"
+        type="button"
+        onClick={() => handleFilterReset(null)}
+      >
+        Reset filter
+      </button>
       {
         facilitiesSet.map(facility => (
           <FilterButton
@@ -30,6 +38,7 @@ const FilterOptions = (props) => {
 };
 
 FilterOptions.propTypes = {
+  handleFilterReset: PropTypes.func,
   handleFilterClick: PropTypes.func,
 }
 

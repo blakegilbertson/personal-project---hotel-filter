@@ -11,7 +11,7 @@ const FilterButton = (props) => {
       className="filter-option"
       key={facility}
       type="button"
-      // onClick={() => handleFilterClick(facility)}
+      onClick={() => handleFilterClick(facility)}
     >
       {facility}
     </button>
