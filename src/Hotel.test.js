@@ -48,36 +48,18 @@ describe('<FilterOptions /> shallow renders', () => {
 });
 
 describe('<FilterButton /> shallow renders', () => {
-  const mockCallback = jest.fn();
-  const filterButton = shallow(<FilterButton onClick={mockCallback} />);
+  const mockFunction = jest.fn();
+  const filterButton = shallow(<FilterButton key="filter_gym" facility="gym" handleFilterClick={mockFunction} />);
 
   it('Should render at least 1 filter button', () => {
     expect(filterButton.length).toBeGreaterThanOrEqual(1);
   });
 
   it('Should click as expected', () => {
-    // TODO - fix this
-    // Cant simuate click as function is undefined - need to pass it through to here some how
-    // error: TypeError: Cannot read property 'handleFilterClick' of undefined
-    // filterOptions.find('.filter-option:first-child').simulate('click');
+    expect(mockFunction.mock.calls.length).toEqual(0);
 
-    // filterOptions.find('.filter-option:first-child').simulate('click', () => {
-    //   console.log('handleFilterClick fired');
-    // });
+    filterButton.simulate('click');
 
-    // const mockLogout = jest.fn();
-    // const wrapper = shallow(<Component startLogout={mockLogout}/>);
-    // wrapper.find('button').at(0).simulate('click');
-    // expect(mockLogout).toHaveBeenCalled();
-
-
-
-
-    // expect(mockCallback.mock.calls.length).toEqual(0);
-
-    // filterButton.simulate('click');
-
-    // expect(mockCallback).toHaveBeenCalled();
-    // expect(mockCallback.mock.calls.length).toEqual(1);
+    expect(mockFunction.mock.calls.length).toEqual(1);
   });
 });
