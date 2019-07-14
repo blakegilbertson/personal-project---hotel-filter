@@ -19,7 +19,7 @@ const FilterButton = (props) => {
 };
 
 FilterButton.propTypes = {
-  facility: PropTypes.arrayOf(PropTypes.string).isRequired,
+  facility: PropTypes.string.isRequired,
   handleFilterClick: PropTypes.func.isRequired,
 };
 

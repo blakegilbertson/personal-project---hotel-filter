@@ -9,8 +9,6 @@ const HotelRow = (props) => {
     facilities,
   } = props;
 
-  console.log('typeof facilities: ', typeof facilities);
-
   return (
     <tr className="hotel-row">
       <td>{name}</td>
@@ -32,7 +30,7 @@ HotelRow.propTypes = {
   hotelId: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   starRating: PropTypes.number.isRequired,
-  facilities: PropTypes.objectOf(PropTypes.array).isRequired,
+  facilities: PropTypes.array.isRequired,
 };
 
 export default HotelRow;
