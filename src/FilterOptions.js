@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import hotelData from './hotel.data.json';
-import FilterButton from './FilterButton';
+import FilterCheckbox from './FilterCheckbox';
 
 const FilterOptions = (props) => {
   const {
     handleFilterReset,
-    handleFilterClick,
+    handleFilterCheck,
   } = props;
 
   const facilitiesArr = new Array(0);
@@ -19,7 +19,7 @@ const FilterOptions = (props) => {
   return (
     <div className="hotel-filters">
       <button
-        className="filter-option filter-reset"
+        className="filter-reset"
         type="button"
         onClick={() => handleFilterReset(null)}
       >
@@ -27,10 +27,10 @@ const FilterOptions = (props) => {
       </button>
       {
         facilitiesSet.map(facility => (
-          <FilterButton
+          <FilterCheckbox
             key={`filter_${facility}`}
             facility={facility}
-            handleFilterClick={handleFilterClick}
+            handleFilterCheck={handleFilterCheck}
           />
         ))
       }
@@ -40,7 +40,7 @@ const FilterOptions = (props) => {
 
 FilterOptions.propTypes = {
   handleFilterReset: PropTypes.func.isRequired,
-  handleFilterClick: PropTypes.func.isRequired,
+  handleFilterCheck: PropTypes.func.isRequired,
 };
 
 export default FilterOptions;

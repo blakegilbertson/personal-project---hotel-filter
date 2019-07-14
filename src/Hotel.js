@@ -4,28 +4,61 @@ import './Hotel.css';
 import HotelRow from './HotelRow';
 import FilterOptions from './FilterOptions';
 
-console.log(hotelData);
-
 class HotelList extends Component {
-  state = {
-    filterSet: null,
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterSet: [],
+    };
   }
 
-  handleFilterClick = (facility) => {
-    console.log('handleFilterClick facility: ', facility);
-    this.setState({ filterSet: facility });
+  handleFilterCheck = (e) => {
+    const { target } = e;
+    const isChecked = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState(prevState => ({
+      filterSet: {
+        ...prevState.filterSet,
+        [target.name]: [isChecked],
+      },
+    }));
   }
 
   handleFilterReset = () => {
-    this.setState({ filterSet: null });
+    const filterCheckboxs = document.getElementsByClassName('filter-option');
+
+    for (let i = 0; i < filterCheckboxs.length; i += 1) {
+      const check = filterCheckboxs[i];
+      if (check.checked) check.checked = false;
+    }
+
+    this.setState({ filterSet: [] });
   }
 
-  filterHotels = (filters) => {
-    if (filters === null) return hotelData;
+  filterHotels = (filterSet) => {
+    // if no filters set, return full object
+    if (filterSet === undefined || filterSet.length === 0) return hotelData;
 
-    const returnedHotel = hotelData.filter(hotel => hotel.facilities.includes(filters));
+    const filteredHotels = hotelData.filter((filter) => {
+      const isToBeFilteredBy = [];
 
-    return returnedHotel;
+      Object.entries(filterSet).map((thisFilter) => {
+        const facility = thisFilter[0];
+        const isSelected = thisFilter[1][0];
+
+        if (isSelected === true) {
+          if (filter.facilities.includes(facility)) {
+            isToBeFilteredBy.push('yes'); // TODO refactor, doesnt feel like a great solution
+          } else {
+            isToBeFilteredBy.push('no');
+          }
+        }
+      });
+
+      return !isToBeFilteredBy.includes('no') ? filter : null;
+    });
+
+    return filteredHotels;
   };
 
   render() {
@@ -44,7 +77,7 @@ class HotelList extends Component {
             </p>
             <FilterOptions
               handleFilterReset={this.handleFilterReset}
-              handleFilterClick={this.handleFilterClick}
+              handleFilterCheck={this.handleFilterCheck}
             />
           </div>
           <table className="hotel-table">

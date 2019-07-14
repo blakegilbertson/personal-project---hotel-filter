@@ -16,5 +16,11 @@
     "name": "hotelthree",
     "starRating": 3,
     "facilities": ["jacuzzi", "playground"]
+  },
+  {
+    "hotelId": 3,
+    "name": "hotelfour",
+    "starRating": 3,
+    "facilities": []
   }
 ]
