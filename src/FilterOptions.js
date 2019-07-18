@@ -5,6 +5,7 @@ import FilterCheckbox from './FilterCheckbox';
 
 const FilterOptions = (props) => {
   const {
+    hotelList,
     handleFilterReset,
     handleFilterCheck,
   } = props;
@@ -17,9 +18,9 @@ const FilterOptions = (props) => {
   const facilitiesSet = [...new Set(facilitiesArr)];
 
   return (
-    <div className="hotel-filters">
+    <div className={`${hotelList}-filter-options`}>
       <button
-        className="filter-reset"
+        className={`${hotelList}-filter-reset`}
         type="button"
         onClick={() => handleFilterReset(null)}
       >

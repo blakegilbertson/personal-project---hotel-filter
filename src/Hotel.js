@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import hotelData from './hotel.data.json';
-import './Hotel.css';
+import './assets/styles/css/hotel_filter.css';
 import HotelRow from './HotelRow';
 import FilterOptions from './FilterOptions';
 
@@ -10,7 +10,6 @@ class HotelList extends Component {
     this.state = {
       filterSet: {},
     };
-    console.log('HotelList this.state: ', this.state);
   }
 
   handleFilterCheck = (e) => {
@@ -92,24 +91,26 @@ class HotelList extends Component {
 
   render() {
     const { filterSet } = this.state;
+    const hotelList = 'hotel-list';
     return (
-      <div className="hotel-list">
+      <div className={hotelList}>
         <header>
           <h1>Hotel Filtering</h1>
         </header>
-        <section className="hotel-content">
-          <div className="hotel-filtering">
-            <p>
+        <section className={`${hotelList}-content`}>
+          <div className={`${hotelList}-filter`}>
+            <p className={`${hotelList}-filter-selection`}>
               {
                 `Current filter: ${this.outputCurrentFilters(filterSet)}`
               }
             </p>
             <FilterOptions
+              hotelList={hotelList}
               handleFilterReset={this.handleFilterReset}
               handleFilterCheck={this.handleFilterCheck}
             />
           </div>
-          <table className="hotel-table">
+          <table className={`${hotelList}-hotel-data`}>
             <tbody>
               <tr>
                 <th>Name</th>
