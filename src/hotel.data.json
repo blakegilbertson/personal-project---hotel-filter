@@ -3,19 +3,19 @@
     "hotelId": 0,
     "name": "hotelone",
     "starRating": 5,
-    "facilities": ["car park", "pool"]
+    "facilities": ["Car park", "Pool"]
   },
   {
     "hotelId": 1,
     "name": "hoteltwo",
     "starRating": 3,
-    "facilities": ["car park", "gym", "playground"]
+    "facilities": ["Car park", "Gym", "Playground"]
   },
   {
     "hotelId": 2,
     "name": "hotelthree",
     "starRating": 3,
-    "facilities": ["jacuzzi", "playground"]
+    "facilities": ["Jacuzzi", "Playground"]
   },
   {
     "hotelId": 3,

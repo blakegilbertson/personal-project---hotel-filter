@@ -8,13 +8,14 @@ class HotelList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterSet: [],
+      filterSet: {},
     };
+    console.log('HotelList this.state: ', this.state);
   }
 
   handleFilterCheck = (e) => {
     const { target } = e;
-    const isChecked = target.type === 'checkbox' ? target.checked : target.value;
+    const isChecked = target.type === 'checkbox' && target.checked;
 
     this.setState(prevState => ({
       filterSet: {
@@ -61,6 +62,34 @@ class HotelList extends Component {
     return filteredHotels;
   };
 
+  outputCurrentFilters = (filterSet) => {
+    const filterSetArr = Object.entries(filterSet);
+    const isFilterSet = filterSetArr.length > 0 || filterSetArr.includes(true);
+    let currentFilterStr = '';
+
+    if (isFilterSet) {
+      filterSetArr.map((filter) => {
+        const isToBeIncluded = filter[1].includes(true);
+        const thisFilterText = filter[0];
+        const isOnlyFilter = currentFilterStr === '';
+
+        if (isToBeIncluded) {
+          if (isOnlyFilter) {
+            currentFilterStr = thisFilterText;
+          } else {
+            currentFilterStr += ` | ${thisFilterText}`;
+          }
+        }
+        return currentFilterStr;
+      });
+    } else {
+      currentFilterStr = 'None selected';
+    }
+
+    if (currentFilterStr === '') currentFilterStr = 'None selected';
+    return currentFilterStr;
+  };
+
   render() {
     const { filterSet } = this.state;
     return (
@@ -72,7 +101,7 @@ class HotelList extends Component {
           <div className="hotel-filtering">
             <p>
               {
-                `Current filter: ${filterSet || 'None'}`
+                `Current filter: ${this.outputCurrentFilters(filterSet)}`
               }
             </p>
             <FilterOptions
