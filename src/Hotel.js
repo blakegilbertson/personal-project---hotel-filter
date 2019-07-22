@@ -4,6 +4,8 @@ import hotelData from './hotel.data.json';
 import HotelRow from './HotelRow';
 import FilterOptions from './FilterOptions';
 
+// 
+
 class HotelList extends Component {
   constructor(props) {
     super(props);
