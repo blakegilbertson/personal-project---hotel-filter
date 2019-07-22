@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import hotelData from './hotel.data.json';
-import './assets/styles/css/hotel_filter.css';
+
 import HotelRow from './HotelRow';
 import FilterOptions from './FilterOptions';
 
